@@ -17,7 +17,7 @@ def home(request):
 		return render(request, 'home.html', {'api' : api})
 
 	else:
-		return render(request, 'home.html', {'ticker' : "Enter a Ticker Symbol Above..."})
+		return render(request, 'home.html', {'ticker' : " 可於右上方搜尋Bar輸入美股代號查詢，例如輸入fb"})
 
 
 
@@ -50,8 +50,4 @@ def delete(request, stock_id):
 	item = Stock.objects.get(pk=stock_id)
 	item.delete()
 	messages.success(request, ("Stock Has Been Deleted!"))
-	return redirect(delete_stock)
-
-def delete_stock(request):
-	ticker = Stock.objects.all()
-	return render(request, 'delete_stock.html', {'ticker': ticker})
+	return redirect('add_stock')
