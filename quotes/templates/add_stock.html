@@ -5,7 +5,7 @@
 
 
 
-<h1>Add Stock...</h1>
+<h1>可輸入美股代號加入查詢表格</h1>
 <br/>
 
 <form action="{% url 'add_stock'%}"  class="form-inline my-2 my-lg-0" method="POST">
@@ -46,10 +46,12 @@
 	</tbody>
 </table>
 
-<br/><br/>
+<br/>
 
 {% for item in ticker %}
 		<a href="{% url 'delete' item.id %}" class="btn btn-secondary"> Delete {{item}} </a> &nbsp;&nbsp;&nbsp;
 {% endfor %}
+
+<br/><br/>
 
 {% endblock %}
